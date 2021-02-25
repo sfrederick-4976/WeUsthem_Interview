@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "interview-e3316"
+  },
+  "targets": {
+    "interview-e3316": {
+      "hosting": {
+        "intervewApp": [
+          "interview-e3316"
+        ]
+      }
+    }
   }
 }

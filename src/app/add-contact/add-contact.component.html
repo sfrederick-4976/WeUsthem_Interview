@@ -1,6 +1,6 @@
 <div class="outer">
   <div class="welcome"><h1>Add a New Contact</h1></div>
-  <form class="form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+  <form class="form" (ngSubmit)="onSubmit()" #createArticleForm="ngForm">
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -14,28 +14,24 @@
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>First Name</i></mat-label>
-      <input matInput type="name" name="firstName" [formControl]="firstName">
-      <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+      <input matInput type="name" name="firstName" [(ngModel)]="newContact.firstName" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>Last Name</i></mat-label>
-      <input matInput type="name" name="lastName" [formControl]="lastName">
-      <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+      <input matInput type="name" name="lastName" [(ngModel)]="newContact.lastName">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>E-Mail</i></mat-label>
-      <input matInput type="email" name="email" [formControl]="email">
-      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      <input matInput type="email" name="email" [(ngModel)]="newContact.email" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>Phone Number</i></mat-label>
-      <input matInput type="phone" name="phone" [formControl]="phone">
-      <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+      <input matInput type="phone" name="phone" [(ngModel)]="newContact.phone" required>
     </mat-form-field>
 
-    <input  type="submit" name="submit"  class="addContact" value="Submit"/>
+    <input  type="submit" name="submit"  class="addContact" value="Save Contact"/>
   </form>
 </div>

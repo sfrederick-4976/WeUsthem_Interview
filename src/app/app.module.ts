@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import * as firebase from 'firebase/app';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,6 +20,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ContactDisplayComponent } from './contact-display/contact-display.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {environment} from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +35,9 @@ import {MatSortModule} from '@angular/material/sort';
   ],
   imports: [
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
