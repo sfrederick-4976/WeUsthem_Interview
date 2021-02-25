@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: #342C63;
+}
+
+.addContactButton {
+  background-color: #9297C4;
+  color: whitesmoke;
+  border: none;
+  border-radius: 25px;
+  height: 40px;
+  width:320px;
+  margin: 10px;
+}

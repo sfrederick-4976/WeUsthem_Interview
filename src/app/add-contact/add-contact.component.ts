@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-contact',
@@ -9,14 +10,13 @@ import {HttpClient} from '@angular/common/http';
 })
 
 export class AddContactComponent implements OnInit {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private router: Router) { }
   // Checking for required and valid inputs
   firstName = new FormControl('', [Validators.required]);
   lastName = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   phone = new FormControl('', [Validators.required, Validators.pattern('^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$')]);
-
+  postId;
   // tslint:disable-next-line:typedef
   getFirstNameErrorMessage() {
     if (this.firstName.hasError('required')) {
@@ -49,10 +49,16 @@ export class AddContactComponent implements OnInit {
     return this.phone.hasError('phone') ? 'Not a valid phone number' : '';
   }
   // tslint:disable-next-line:typedef
-  onSubmit() {
-
+  onSubmit( value: any) {
+    const error = this.getPhoneErrorMessage() + this.getFirstNameErrorMessage() + this.getLastNameErrorMessage() +
+      this.getEmailErrorMessage();
+    if (error === ''){
+      console.log(value.value);
+    } else {
+      console.log('Didn\'t work');
+    }
   }
   ngOnInit(): void {
-  }
 
+  }
 }

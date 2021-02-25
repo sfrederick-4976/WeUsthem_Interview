@@ -1,5 +1,6 @@
 // equivalent of older: const express = require('express')
 import express from 'express';
+import { routes } from './routes';
 
 const app = express();
 
@@ -18,11 +19,7 @@ app.use((req, res, next) => {
 
 // Handle POST requests that come in formatted as JSON
 app.use(express.json());
-
-// A default hello word route
-app.get('/', (req, res) => {
-  res.send({hello: 'world'});
-});
+app.use('/', routes);
 
 // start our server on port 4201
 // tslint:disable-next-line:only-arrow-functions

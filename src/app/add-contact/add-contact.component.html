@@ -1,6 +1,6 @@
 <div class="outer">
   <div class="welcome"><h1>Add a New Contact</h1></div>
-  <form class="form">
+  <form class="form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -14,28 +14,28 @@
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>First Name</i></mat-label>
-      <input matInput type="name" [formControl]="firstName">
+      <input matInput type="name" name="firstName" [formControl]="firstName">
       <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>Last Name</i></mat-label>
-      <input matInput type="name" [formControl]="lastName">
+      <input matInput type="name" name="lastName" [formControl]="lastName">
       <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>E-Mail</i></mat-label>
-      <input matInput type="email" [formControl]="email">
+      <input matInput type="email" name="email" [formControl]="email">
       <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>Phone Number</i></mat-label>
-      <input matInput type="phone" [formControl]="phone">
+      <input matInput type="phone" name="phone" [formControl]="phone">
       <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
     </mat-form-field>
 
-    <button class="addContact" mat-button>Add Contact</button>
+    <input  type="submit" name="submit"  class="addContact" value="Submit"/>
   </form>
 </div>
