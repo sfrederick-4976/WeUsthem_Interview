@@ -24,6 +24,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {environment} from '../environments/environment';
     RouterModule,
     MatTableModule,
     MatSortModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
