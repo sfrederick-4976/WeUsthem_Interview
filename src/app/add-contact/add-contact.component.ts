@@ -34,6 +34,7 @@ export class AddContactComponent implements OnInit {
   onSubmit() {
     console.log(this.newContact);
     this.db.collection<Contact>('Contacts').add(this.newContact);
+    this.router.navigate(['/']);
   }
   ngOnInit(): void {
 
