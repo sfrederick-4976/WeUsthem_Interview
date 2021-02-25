@@ -7,7 +7,7 @@ Interview Feb 25/2021 - WeUsThem
 
 For this application, I used Angular and Node.js with Firestore as the database.  I was going to avoid using 
 a database however, having no experience working backend yet (still in school) I decided mid-day that I would be able to produce
-the most functionality if I were to utilize Firebase's Cloud Firestore.  
+the most functionality if I were to utilize Firebase's Cloud Firestore.  For UI, I utilized Material Angular.    
 
 ### How it Works
 The main screen is the page with the table of contacts.  I wanted to use an accordian menu component but due to the late decision to work with Firestore, 
