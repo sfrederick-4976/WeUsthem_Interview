@@ -1,32 +1,31 @@
-<<<<<<< HEAD
-# IntervewApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+# Interview App
 
-## Development server
+Interview Feb 25/2021 - WeUsThem
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Framework
 
-## Code scaffolding
+For this application, I used Angular and Node.js with Firestore as the database.  I was going to avoid using 
+a database however, having no experience working backend yet (still in school) I decided mid-day that I would be able to produce
+the most functionality if I were to utilize Firebase's Cloud Firestore.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### How it Works
+The main screen is the page with the table of contacts.  I wanted to use an accordian menu component but due to the late decision to work with Firestore, 
+I was not able to implement it and stuck with a table to have the contacts viewable for the purpose of this test.  
 
-## Build
+![picture](src/assets/images/viewContacts.PNG)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The button on the top will take user to 
+an Add Contact screen where the data will be checked and, if valid, saved in the database upon submission of the form.  
 
-## Running unit tests
+![picture](src/assets/images/addContact.PNG)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+When the data is saved, the user is redirected to the home screen of contacts and will be able to see their new contact there.  These contacts are all saved to the database and will be accessible
+at any time.  
 
-## Running end-to-end tests
+Update and Delete functions were added to the files however they were not implemented on the UI due to time constraints.     
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### How to run
+To run the code "ng serve" in the terminal will start both the frontend and the node server.  The application will then open on localhost.  It was made for mobile screen size so it will not look proper on full desktop view. 
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# WeUsthem_Interview
-Interview Feb 25/2021
->>>>>>> a3bd99c957b00fa2a2c9fca782d91f836408c493

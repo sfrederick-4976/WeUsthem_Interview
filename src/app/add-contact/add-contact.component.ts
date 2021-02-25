@@ -3,8 +3,6 @@ import {FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { AngularFirestore} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
 
 export interface Contact {
   Uid: string;
