@@ -14,7 +14,7 @@
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>First Name</i></mat-label>
-      <input matInput type="name" name="firstName" [(ngModel)]="newContact.firstName" required>
+      <input matInput type="name" name="firstName" [(ngModel)]="newContact.firstName" [formControl]="firstName" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
@@ -24,12 +24,13 @@
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>E-Mail</i></mat-label>
-      <input matInput type="email" name="email" [(ngModel)]="newContact.email" required>
+      <input matInput type="email" name="email" [(ngModel)]="newContact.email" [formControl]="email" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-control">
       <mat-label><i>Phone Number</i></mat-label>
-      <input matInput type="phone" name="phone" [(ngModel)]="newContact.phone" required>
+      <input matInput type="phone" name="phone" [(ngModel)]="newContact.phone" [formControl]="phone" required>
+      <mat-error *ngIf="phone.invalid"> {{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <input  type="submit" name="submit"  class="addContact" value="Save Contact"/>

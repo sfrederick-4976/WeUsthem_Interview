@@ -4,9 +4,10 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { AngularFirestore} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 
 export interface Contact {
+  Uid: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -21,20 +22,37 @@ export interface Contact {
 
 export class AddContactComponent implements OnInit {
   // Checking for required and valid inputs
-  articles$: Observable<Contact[]>;
-
+  firstName = new FormControl(Validators.requiredTrue);
+  email = new FormControl(Validators.requiredTrue);
+  phone = new FormControl(Validators.pattern('^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$'),
+    Validators.requiredTrue);
   constructor(private http: HttpClient,  private router: Router, private db: AngularFirestore) { }
   newContact: Contact = {
+    Uid: '',
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
   };
+  // On submit, data is pulled and added as a new entry into Firestore collection "Contacts"
   // tslint:disable-next-line:typedef
   onSubmit() {
     console.log(this.newContact);
-    this.db.collection<Contact>('Contacts').add(this.newContact);
-    this.router.navigate(['/']);
+    this.db.collection<Contact>('Contacts').add(this.newContact).then(() => {
+      console.log('Document successfully added!');
+      this.router.navigate(['/']);
+    }).catch((error) => {
+      console.log('Input not correct', error);
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  getErrorMessage() {
+    if (this.phone.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.phone.hasError('phone') ? 'Please enter a valid phone number' : '';
   }
   ngOnInit(): void {
 

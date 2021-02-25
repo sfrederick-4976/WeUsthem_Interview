@@ -33,4 +33,18 @@ export class ContactDisplayComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
   }
+  // Deletes entry.  Needs to be connected table
+  // tslint:disable-next-line:typedef
+  deleteEntry(contact: Contact) {
+    this.db.collection<Contact>('Contacts').doc('contact').delete().then(() => {
+      console.log('Document successfully deleted!');
+    });
+  }
+  // Updates entry.  Needs to be connected table
+  // tslint:disable-next-line:typedef
+  updateEntry(contact: Contact) {
+    this.db.collection<Contact>('Contacts').doc('contact').update({ firstName: contact.firstName}).then (() => {
+      console.log('Document successfully updated!');
+    });
+  }
 }
