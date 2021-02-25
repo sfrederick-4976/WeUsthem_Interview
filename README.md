@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IntervewApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# WeUsthem_Interview
+Interview Feb 25/2021
+>>>>>>> a3bd99c957b00fa2a2c9fca782d91f836408c493
